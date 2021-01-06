@@ -2,7 +2,7 @@
 
 ## Overview
 
-Algebras is a collection type classes providing the structure for F-algebras and common operations on inductive types derived from those structures as well as a free isomorphism for converting between inductive types. Algebras values generality but not at the expense of efficency - only operations whose asymptotic complexity could not be more smaller in the general case are provided. For example the general implementation for `drop` of O(n) cannot ergonomically compete with the O(1) in `Data.Seq.drop` thus it is not provided; however, `dropWhile` is necessarily O(n) so we can derive it from an instance of `FCoalgebra`.
+Algebras is a collection type classes providing the structure for F-algebras and common operations on inductive types derived from those structures as well as a free isomorphism for converting between inductive types. Algebras values generality but not at the expense of efficency - only operations whose asymptotic complexity could not be smaller in a specific case are provided. For example the general implementation for `drop` of O(n) cannot ergonomically compete with the O(1) in `Data.Seq.drop` thus it is not provided; however, `dropWhile` is necessarily O(n) so we can derive it from an instance of `FCoalgebra`.
 
 ## Application
 
