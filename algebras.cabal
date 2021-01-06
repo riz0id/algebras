@@ -4,7 +4,7 @@ name:                algebras
 version:             0.1.0.0
 synopsis:            Generalized operations on inductive types.
 description:         A library for working with abstract notions of list and their operations based on initial F-algebras.
-license:             BSD3
+license:             BSD-3-Clause
 license-file:        LICENSE
 author:              Jake Leach
 maintainer:          jacobleach@protonmail.com
