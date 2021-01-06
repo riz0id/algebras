@@ -43,7 +43,7 @@ library
 
   build-depends:
       base       >=4.14 && <4.16
-    , containers >=0.6.4.1
+    , containers >=0.6.2.1
 
   exposed-modules:
       Data.Algebra
