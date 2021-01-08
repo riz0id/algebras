@@ -28,7 +28,9 @@ common common
     -Wno-missing-local-signatures
     -Wno-monomorphism-restriction
     -Wno-name-shadowing
+    -Wno-prepositive-qualified-module
     -Wno-safe
+    -Wno-missing-safe-haskell-mode
     -Wno-unsafe
   if (impl(ghc >= 8.8))
     ghc-options: -Wno-missing-deriving-strategies
@@ -44,6 +46,7 @@ library
   build-depends:
       base       >=4.14 && <4.16
     , containers >=0.6.2.1
+    , text       >=1.2.4.0
 
   exposed-modules:
       Data.Algebra

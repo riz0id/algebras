@@ -1,4 +1,4 @@
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE TypeFamilies #-}
 
 -- | Module    :  Data.Algebra
 -- Copyright   :  (c) Jacob Leach, 2020 - 2022
@@ -12,13 +12,15 @@
 --
 -- @since 0.1.0.0
 
-module Data.Algebra.FAlgebra.Internal where
+module Data.Algebra.FAlgebra.Internal
+  ( FAlgebra(..)
+  ) where
 
-import           Data.Sequence (Seq)
-import qualified Data.Sequence as Seq
+import Data.List.NonEmpty as NonEmpty (NonEmpty(..))
+import Data.Sequence      as Seq (Seq(..), (<|))
+import Data.Text          as Text (Text, cons)
 
 import Data.Kind
-import Prelude hiding (head, tail)
 
 -- | Initial F-algebra in the category @a@.
 --
@@ -42,8 +44,22 @@ instance FAlgebra [a] where
   {-# INLINE CONLIKE fcons #-}
 
 -- | @since 0.1.0.0
+instance FAlgebra (NonEmpty a) where
+  type FElem (NonEmpty a) = (a, [a])
+
+  fcons (x, xs) = x NonEmpty.:| xs
+  {-# INLINE CONLIKE fcons #-}
+
+-- | @since 0.1.0.0
 instance FAlgebra (Seq a) where
   type FElem (Seq a) = (a, Seq a)
 
   fcons (x, xs) = x Seq.<| xs
+  {-# INLINE CONLIKE fcons #-}
+
+-- | @since 0.1.0.0
+instance FAlgebra Text where
+  type FElem Text = (Char, Text)
+
+  fcons (x, xs) = Text.cons x xs
   {-# INLINE CONLIKE fcons #-}
